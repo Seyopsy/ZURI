@@ -1,29 +1,65 @@
-# Check if two words are anagrams 
-# Example:
-# find_anagrams("hello", "check") --> False
-# find_anagrams("below", "elbow") --> True
+#Rock Paper Scissors
 
 
-#def find_anagram(word, anagram):
-    # [assignment] Add your code here
+#import random numbers
+import random
 
-    #get input from user
-word=input("Type the Word ")
+#get player choice
+while True:
+    player_choice = ["r", "p", "s"]
+    player_input = input("Select One of R, P or S : R for Rock, P for Paper, S for Scissors").lower().strip()
+   
+    if player_input == "r" :
+        player_input_name = "Rock"
+    elif player_input == "p" :
+        player_input_name = "Paper"
+    else: player_input_name = "Scissors"
 
-    #get input from user
-anagram=input("Type the Possible Anagram  ")
+    if player_input in player_choice:
+        print ("you have selected  " + player_input_name) 
+    else :
+        print ("Please select a valid option")
+        continue
 
-#convert to lower case,python is case sensitive 
-word=word.lower()
-anagram=anagram.lower()
+    #computer is playing
+    computer_play = random.choice(player_choice)
+    if computer_play == "r" :
+        computer_play_name = "Rock"
+    elif computer_play == "p" :
+        computer_play_name = "Paper"
+    else: computer_play_name = "Scissors"
+    print ( 'Player:' + player_input_name + ' CPU:' + computer_play_name)
 
-    #length of first word
-arrange_word=sorted(word)
+    #move interpretation
+    if computer_play == player_input:
+        print("The game is a draw")
+        continue
 
-    #arrange first word
-arrange_anagram=sorted(anagram)
+    elif player_input == 'r' :
+        if computer_play == "p" :
+            print("You lose, Paper covers Rock ")
+        else:
+            print("You win, Rock smashes Scissors")
 
-if(arrange_word==arrange_anagram):
-    print(True)
-else: 
-    print(False)
+    elif player_input == 'p' :
+        if computer_play == "s" :
+            print("You lose, Scissors cuts Paper ")
+        else:
+            print("You win, Paper covers Rock")
+
+    elif player_input == 's' :
+        if computer_play == "r" :
+            print("You lose, rock smashes scissors ")
+        else:
+            print("You win, scissors covers paper")
+    break      
+
+
+
+
+    
+
+
+
+
+
